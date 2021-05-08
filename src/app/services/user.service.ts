@@ -19,7 +19,7 @@ export class UserService {
   }
 
   addRole(roleName) {
-    return this.http.post(this.url + '/roles?roleName=' + roleName, { headers: this.headers_object });
+    return this.http.post(this.url + '/roles', {'RoleName': roleName},{ headers: this.headers_object });
   }
 
   assignRole(model) {

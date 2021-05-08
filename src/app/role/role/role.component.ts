@@ -25,7 +25,6 @@ export class RoleComponent implements OnInit {
   getRoles() {
     this._userService.getRoles().subscribe((res: any) => {
       if (res.isSuccess) {
-        debugger;
         this.roles = res.responseData;
       }
     })
