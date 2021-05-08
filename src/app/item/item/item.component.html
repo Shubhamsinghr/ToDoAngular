@@ -43,8 +43,8 @@
                   <tr *ngFor="let i of items; let index = index">
                     <td>{{ i.title }}</td>
                     <td>{{ i.description }}</td>
-                    <td>{{ i.createdAt }}</td>
-                    <td>{{ i.modifedOn }}</td>
+                    <td>{{ i.createdAt | date:'medium'}}</td>
+                    <td>{{ i.modifedOn | date:'medium'}}</td>
                     <td>
                       <button (click)="openEditPopup(content, true, i)">Edit</button>
                     </td>

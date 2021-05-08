@@ -39,12 +39,13 @@ export class UserComponent implements OnInit {
   assignRole(){
     let obj = {'userId':this.selectedUserId, 'roleName': this.form.value.roleName};
     this._userService.assignRole(obj).subscribe((res: any) => {
-      debugger;
       if(res.isSuccess){
         this.form.reset();
+        this.modalService.dismissAll();
       }else{
         this.form.reset();
         alert(res.message);
+        this.modalService.dismissAll();
       }
     })
   }

@@ -31,11 +31,15 @@ export class RoleComponent implements OnInit {
   }
   
   addRole(){
+    debugger
     this._userService.addRole(this.Addform.value.roleName).subscribe((res:any)=>{
+      debugger
       if (res.isSuccess) {
         debugger;
         this.Addform.reset();
         this.getRoles();
+      }else{
+        alert(res.message)
       }
     });
   }
