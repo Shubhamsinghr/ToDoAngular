@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="box">
+          <h1>Login</h1>
+          <p class="text-muted">Please enter your login and password!</p>
+          <input
+            type="text"
+            formControlName="email"
+            placeholder="Email"
+            required
+          />
+          <div
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="error-msg"
+          >
+            <div *ngIf="email.errors.required"><span>Email is required.</span></div>
+          </div>
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+            required
+          />
+          <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="error-msg"
+          >
+            <div *ngIf="password.errors.required"><span>Password is required.</span></div>
+          </div>
+          <input
+            type="submit"
+            [disabled]="!loginForm.valid"
+            value="Login"
+            href="#"
+          />
+          <a class="sign-up" href="/register">SignUp</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

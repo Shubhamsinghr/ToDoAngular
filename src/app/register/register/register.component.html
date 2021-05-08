@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="box">
+          <h1>Register</h1>
+          <input type="text" formControlName="email" placeholder="email" />
+          <div
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="error-msg"
+          >
+            <div *ngIf="email.errors.required">
+              <span>Email is required.</span>
+            </div>
+          </div>
+          <input
+            type="text"
+            formControlName="firstName"
+            placeholder="First Name"
+          />
+          <div
+            *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+            class="error-msg"
+          >
+            <div *ngIf="firstName.errors.required">
+              <span>First Name is required.</span>
+            </div>
+          </div>
+          <input
+            type="text"
+            formControlName="lastName"
+            placeholder="Last Name"
+          />
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+          />
+          <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="error-msg"
+          >
+            <div *ngIf="password.errors.required">
+              <span>Password is required.</span>
+            </div>
+            <div *ngIf="password.errors.pattern">
+              <span>Please enter a valid password</span>
+            </div>
+          </div>
+          <input [disabled]="!signUpForm.valid" type="submit" name="" value="SignUp" />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
